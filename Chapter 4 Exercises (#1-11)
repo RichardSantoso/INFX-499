@@ -1,20 +1,38 @@
 1. Which Linear Regression training algorithm can you use if you have a training set with millions of features?
+  I think the best algorithm to train with millions of features would be Stochastic gradient descent or mini batch gradient decent
 2. Suppose the features in your training set have very different scales. Which algo‐ rithms might suffer from this, 
 and how? What can you do about it?
+  If the features in your training set have very different scales, the cost function will have the shape of an elongated bowl, so the Gradient Descent algorithms will take a long time to converge. 
+  To solve this you should scale the data before training the model.
 3. Can Gradient Descent get stuck in a local minimum when training a Logistic Regression model?
+  No, because the cost function is convex
 4. Do all Gradient Descent algorithms lead to the same model, provided you let them run long enough?
+  It all depends on the training if they have a similar training that is possibility they will be similar. but at the end of the day they will produce slightly different models
 5. Suppose you use Batch Gradient Descent and you plot the validation error at every epoch. 
 If you notice that the validation error consistently goes up, what is likely going on? How can you fix this?
+  If the validation error consistently goes up after every epoch, then one possibility is that the learning rate is too high and the algorithm is diverging. If the training error also goes up, 
+  then this is clearly the problem and you should reduce the learning rate. However, if the training error is not going up, then your model is overfitting the training set and you should stop training.
 6. Is it a good idea to stop Mini-batch Gradient Descent immediately when the vali‐ dation error goes up?
+  Due to their random nature, neither Stochastic Gradient Descent nor Mini-batch Gradient Descent is guaranteed to make progress at every single training itera‐ tion. 
+  So if you immediately stop training when the validation error goes up, you may stop much too early, before the optimum is reached.
 7. Which Gradient Descent algorithm (among those we discussed) will reach the vicinity of the optimal solution the fastest? 
 Which will actually converge? How can you make the others converge as well?
+  Stochastic Gradient Descent has the fastest training iteration since it considers only one training instance at a time, 
+  so it is generally the first to reach the vicinity of the global optimum
 8. Suppose you are using Polynomial Regression. You plot the learning curves and you notice 
 that there is a large gap between the training error and the validation error. What is happening? What are three ways to solve this?
+  If the validation error is much higher than the training error, this is likely because your model is overfitting the training set. 
+  One way to try to fix this is to reduce the polynomial degree: a model with fewer degrees of freedom is less likely to overfit
 9. Suppose you are using Ridge Regression and you notice that the training error and the validation error are almost equal and fairly high. 
 Would you say that the model suffers from high bias or high variance? Should you increase the regulari‐ zation hyperparameter α or reduce it?
+  the model is likely underfitting the training set, which means it has a high bias. probably need to reduce regularization hyperparameter a
 10. Why would you want to use:
 a. Ridge Regression instead of plain Linear Regression (i.e., without any regula‐ rization)?
+  A model with regularization will suit better and performs better than a model without regularization. I think Ridge regression is the choice
 b. Lasso instead of Ridge Regression?
+  Lasso Regression uses an l1 penalty, which tends to push the weights down to exactly zero, which will show the weight of most important.
 c. Elastic Net instead of Lasso?
+  If you want Lasso without the erratic behavior, you can just use Elastic Net with an l1_ratio close to 1.
 11. Suppose you want to classify pictures as outdoor/indoor and daytime/nighttime. 
 Should you implement two Logistic Regression classifiers or one Softmax Regres‐ sion classifier?
+  Since those are 4 variables i think we should train two Logistic Regression Classifier
