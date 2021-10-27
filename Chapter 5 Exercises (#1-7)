@@ -1,0 +1,29 @@
+1. What is the fundamental idea behind Support Vector Machines?
+   The fundamental idea behind Support Vector Machines is to fit the widest possible “street” between the classes.
+   
+2. What is a support vector?
+   a support vector is any instance located on the “street”, including its border.
+   
+3. Why is it important to scale the inputs when using SVMs?
+   SVMs try to fit the largest possible “street” between the classes, so if the training set is not scaled, 
+   the SVM will tend to neglect small features.
+   
+4. Can an SVM classifier output a confidence score when it classifies an instance? What about a probability?
+   An SVM classifier can output the distance between the test instance and the deci‐sion boundary, 
+   and you can use this as a confidence score. If you set probability=True when creating an SVM in Scikit-Learn, 
+   then after training it will calibrate the probabilities using Logistic Regression on the SVM’s scores (trained by an additional five-fold cross-validation on the training data).
+   
+5. Should you use the primal or the dual form of the SVM problem to train a model on a 
+   training set with millions of instances and hundreds of features?
+   This question applies only to linear SVMs since kernelized SVMs can only use the dual form.
+   
+6. Say you’ve trained an SVM classifier with an RBF kernel, but it seems to underfit the training set. 
+   Should you increase or decrease γ (gamma)? What about C?
+   If an SVM classifier trained with an RBF kernel underfits the training set, there might be too much regularization. 
+   To decrease it, you need to increase gamma or C (or both).
+   
+7. How should you set the QP parameters (H, f, A, and b) 
+   to solve the soft margin linear SVM classifier problem using an off-the-shelf QP solver?
+   Let’s call the QP parameters for the hard margin problem H′, f′, A′, and b′. 
+   The QP parameters for the soft margin problem have m additional parameters (np = n + 1 + m) and m additional con‐ straints (nc = 2m). 
+ 
