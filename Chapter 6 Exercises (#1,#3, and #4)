@@ -1,0 +1,10 @@
+1. What is the approximate depth of a Decision Tree trained (without restrictions) on a training set with one million instances?
+   The depth of a well-balanced binary tree containing m leaves is equal to log2(m),2 rounded up. 
+   A binary Decision Tree will end up more or less well balanced at the end of training, 
+   with one leaf per training instance if it is trained without restrictions.
+3. If a Decision Tree is overfitting the training set, is it a good idea to try decreasing max_depth?
+   If a Decision Tree is overfitting the training set, it may be a good idea to decrease max_depth, since this will constrain the model, 
+   regularizing it.
+4. If a Decision Tree is underfitting the training set, is it a good idea to try scaling the input features?
+   Decision Trees don’t care whether or not the training data is scaled or centered; that’s one of the nice things about them. 
+   So if a Decision Tree underfits the train‐ing set, scaling the input features will just be a waste of time.
